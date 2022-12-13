@@ -64,7 +64,7 @@ public class CustomAdapter extends RecyclerView.Adapter<ViewHolder> {
 
                         }
                         if(which == 1) {
-                            Toast.makeText(la, "On Progress", Toast.LENGTH_SHORT).show();
+                            la.deleteData(position);
                         }
                         if(which == 2){
                             dialog.dismiss();

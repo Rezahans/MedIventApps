@@ -3,10 +3,14 @@ package tech.farhand.mediventapps;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -16,6 +20,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -134,12 +140,13 @@ public class MainActivity extends AppCompatActivity {
         medIventUpdt.put("medPrice", medPrice);
         medIventUpdt.put("medExpDate", medExpDate);
         medIventUpdt.put("medDesc", medDesc);
+        medIventUpdt.put("query", medName.toLowerCase());
 
         db.collection("Medicine").document(id).update(medIventUpdt).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 pd.dismiss();
-                Toast.makeText(MainActivity.this, "Success Updating Medicine"+medName, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Success Updating Medicine "+medName, Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(MainActivity.this, ViewListActivity.class));
                 finish();
             }
@@ -147,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 pd.dismiss();
-                Toast.makeText(MainActivity.this, "Failed Add Data: "+e, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Failed Add Data: "+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -168,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         medIvent.put("medPrice", medPrice);
         medIvent.put("medExpDate", medExpDate);
         medIvent.put("medDesc", medDesc);
+        medIvent.put("query", medName.toLowerCase());
 
         db.collection("Medicine").document(id).set(medIvent).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -189,7 +197,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 pd.dismiss();
-                Toast.makeText(MainActivity.this, "Failed Add Data: "+e, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Failed Add Data: "+e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

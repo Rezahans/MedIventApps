@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
         medIventUpdt.put("medExpDate", medExpDate);
         medIventUpdt.put("medDesc", medDesc);
 
-        db.collection("Documents").document(id).update(medIventUpdt).addOnCompleteListener(new OnCompleteListener<Void>() {
+        db.collection("Medicine").document(id).update(medIventUpdt).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 pd.dismiss();
@@ -169,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
         medIvent.put("medExpDate", medExpDate);
         medIvent.put("medDesc", medDesc);
 
-        db.collection("Documents").document(id).set(medIvent).addOnCompleteListener(new OnCompleteListener<Void>() {
+        db.collection("Medicine").document(id).set(medIvent).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 pd.dismiss();
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateLabel(){
-        String myFormat="MM/dd/yy";
+        String myFormat="dd/MM/yy";
         SimpleDateFormat dateFormat=new SimpleDateFormat(myFormat, Locale.US);
         mExpDateEt.setText(dateFormat.format(myCalendar.getTime()));
     }

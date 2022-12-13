@@ -68,7 +68,7 @@ public class ViewListActivity extends AppCompatActivity {
         pd.setTitle("Getting Medicine List...");
         pd.show();
 
-        db.collection("Documents").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("Medicine").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 pd.dismiss();

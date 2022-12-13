@@ -181,7 +181,10 @@ public class MainActivity extends AppCompatActivity {
                 mMedQtyEt.getText().clear();
                 mMedTypeEt.getText().clear();
                 mMedDescEt.getText().clear();
+                startActivity(new Intent(MainActivity.this, ViewListActivity.class));
+                finish();
             }
+
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {

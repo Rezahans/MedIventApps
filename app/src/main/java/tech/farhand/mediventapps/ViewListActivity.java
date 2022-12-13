@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -99,22 +101,38 @@ public class ViewListActivity extends AppCompatActivity {
     }
 
     public void deleteData(int index){
-        String dMedName = db.collection("Medicine").document(mdlList.get(index).getMedName()).toString();
-        pd.setTitle("Deleting "+dMedName);
-        pd.show();
-        db.collection("Medicine").document(mdlList.get(index).getId()).delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        pd.dismiss();
-                        Toast.makeText(ViewListActivity.this, "Deleted "+dMedName, Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        pd.dismiss();
-                        Toast.makeText(ViewListActivity.this, "Error "+e+" While Deleting "+dMedName, Toast.LENGTH_SHORT).show();
-                    }
-                });
+        String dMedName = mdlList.get(index).getMedName();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        String[] options = {"Sure", "No"};
+        builder.setTitle("Delete "+dMedName+" ?");
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if(which == 0){
+                    pd.setTitle("Deleting "+dMedName);
+                    pd.show();
+                    db.collection("Medicine").document(mdlList.get(index).getId()).delete()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    pd.dismiss();
+                                    Toast.makeText(ViewListActivity.this, "Deleted "+dMedName, Toast.LENGTH_SHORT).show();
+                                    startActivity(new Intent(ViewListActivity.this, ViewListActivity.class));
+                                    finish();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception e) {
+                                    pd.dismiss();
+                                    Toast.makeText(ViewListActivity.this, "Error "+e+" While Deleting "+dMedName, Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                }
+                if (which == 1) {
+                    dialog.dismiss();
+                }
+            }
+        }).create().show();
+
     }
 }

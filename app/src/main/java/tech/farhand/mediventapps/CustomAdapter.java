@@ -65,6 +65,7 @@ public class CustomAdapter extends RecyclerView.Adapter<ViewHolder> {
                         }
                         if(which == 1) {
                             la.deleteData(position);
+                            dialog.dismiss();
                         }
                         if(which == 2){
                             dialog.dismiss();

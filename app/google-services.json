@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "565070744114",
+    "firebase_url": "https://mediventapps-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "mediventapps",
+    "storage_bucket": "mediventapps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565070744114:android:d00e6b5c1b0e6e6b36ca2b",
+        "android_client_info": {
+          "package_name": "tech.farhand.mediventapps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "565070744114-mp4kirrs260tgdaqm4m6tdp1mg1jbhse.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8HZn5oebTbMJzWJOf7joOYlLL8s9hNtk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "565070744114-mp4kirrs260tgdaqm4m6tdp1mg1jbhse.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

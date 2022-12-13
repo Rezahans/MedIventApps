@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/medBatchNoEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:inputType="number"
+        android:hint="Medicine Batch Number"
+        android:layout_margin="2dp"
+        android:background="@drawable/bg_edittext"/>
+
+    <EditText
+        android:id="@+id/medNameEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:inputType="text"
+        android:hint="Medicine Name"
+        android:layout_margin="2dp"
+        android:background="@drawable/bg_edittext"/>
+
+    <EditText
+        android:id="@+id/medTypeEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:inputType="text"
+        android:hint="Medicine Type"
+        android:layout_margin="2dp"
+        android:background="@drawable/bg_edittext"/>
+
+    <EditText
+        android:id="@+id/medQtyEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:inputType="number"
+        android:hint="Medicine Qty"
+        android:layout_margin="2dp"
+        android:background="@drawable/bg_edittext"/>
+
+    <EditText
+        android:id="@+id/medPriceEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:inputType="number"
+        android:hint="Medicine Price"
+        android:layout_margin="2dp"
+        android:background="@drawable/bg_edittext"/>
+
+    <EditText
+        android:id="@+id/medExpDateEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:hint="Medicine Expire Date"
+        android:layout_margin="2dp"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:background="@drawable/bg_edittext"/>
+
+    <EditText
+        android:id="@+id/medDescEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:inputType="textMultiLine|textCapSentences"
+        android:hint="Medicine Description"
+        android:layout_margin="2dp"
+        android:background="@drawable/bg_edittext"
+        android:minHeight="150dp"
+        android:gravity="start"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/backBtn"
+        android:text="Back"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/saveBtn"
+            android:text="Save"
+            android:layout_centerHorizontal="true"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
+
+</LinearLayout>

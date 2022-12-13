@@ -93,7 +93,7 @@ public class ViewListActivity extends AppCompatActivity {
             @Override
             public void onFailure(@NonNull Exception e) {
                 pd.dismiss();
-                Toast.makeText(ViewListActivity.this, "Error While Retrieving Data!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewListActivity.this, "Error "+e+" While Retrieving Data!", Toast.LENGTH_SHORT).show();
             }
         });
     }

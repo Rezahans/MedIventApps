@@ -97,4 +97,24 @@ public class ViewListActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void deleteData(int index){
+        String dMedName = db.collection("Medicine").document(mdlList.get(index).getMedName()).toString();
+        pd.setTitle("Deleting "+dMedName);
+        pd.show();
+        db.collection("Medicine").document(mdlList.get(index).getId()).delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        pd.dismiss();
+                        Toast.makeText(ViewListActivity.this, "Deleted "+dMedName, Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        pd.dismiss();
+                        Toast.makeText(ViewListActivity.this, "Error "+e+" While Deleting "+dMedName, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 }

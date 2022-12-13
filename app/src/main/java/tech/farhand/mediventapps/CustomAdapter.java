@@ -88,10 +88,10 @@ public class CustomAdapter extends RecyclerView.Adapter<ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.mMedBatchFd.setText("BatchNo."+mdlList.get(position).getMedBatchNo());
         holder.mMedNameFd.setText(mdlList.get(position).getMedName());
-        holder.mMedTypeFd.setText("Type."+mdlList.get(position).getMedType());
-        holder.mMedQtyFd.setText("Qty."+mdlList.get(position).getMedQty());
-        holder.mMedPriceFd.setText("Price Rp."+mdlList.get(position).getMedPrice());
-        holder.mMedExpDateFd.setText("Expire Date."+mdlList.get(position).getMedExpDate());
+        holder.mMedTypeFd.setText("Type: "+mdlList.get(position).getMedType());
+        holder.mMedQtyFd.setText("Qty: "+mdlList.get(position).getMedQty());
+        holder.mMedPriceFd.setText("Price: Rp."+mdlList.get(position).getMedPrice());
+        holder.mMedExpDateFd.setText("Expire Date: "+mdlList.get(position).getMedExpDate());
         holder.mMedDescFd.setText("Description:\n"+mdlList.get(position).getMedDesc());
 
     }

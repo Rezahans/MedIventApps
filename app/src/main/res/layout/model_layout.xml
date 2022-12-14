@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardBackgroundColor="#fff"
+    app:cardBackgroundColor="#2D4E4E4E"
     app:contentPadding="5dp"
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        
+
         <TextView
             android:id="@+id/rMedBatchNo"
             android:text="Medicine Batch No"

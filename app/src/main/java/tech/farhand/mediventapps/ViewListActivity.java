@@ -45,7 +45,7 @@ public class ViewListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_list);
         ActionBar ab = getSupportActionBar();
-        ab.setTitle("+ RF Pharmacy Inventory");
+        ab.setTitle("Home RF-Med");
         db = FirebaseFirestore.getInstance();
         mRcycV = findViewById(R.id.recycler_view);
         mRcycV.setHasFixedSize(true);

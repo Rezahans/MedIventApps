@@ -80,8 +80,8 @@ public class ViewListActivity extends AppCompatActivity {
     private void showData() {
         pd.setTitle("Getting Medicine List...");
         pd.show();
-
-        db.collection("Medicine").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        mReturnBtn.setVisibility(View.GONE);
+        db.collection("Medicine").orderBy("medName").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 mdlList.clear();
@@ -148,7 +148,7 @@ public class ViewListActivity extends AppCompatActivity {
     private void searchData(String query) {
         pd.setTitle("Searching "+ query);
         pd.show();
-        db.collection("Medicine").whereEqualTo("query", query.toLowerCase()).get()
+        db.collection("Medicine").orderBy("query").startAt(query.toLowerCase()).endAt(query.toLowerCase()+'\uf8ff').get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {

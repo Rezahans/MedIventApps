@@ -105,7 +105,11 @@ public class MainActivity extends AppCompatActivity {
                 Bundle bundle = getIntent().getExtras();
                 if(bundle != null){
                     String id=pId, BatchNo = mBatchNoEt.getText().toString().trim(), MedName = mMedNameEt.getText().toString().trim(), MedType = mMedTypeEt.getText().toString().trim(), MedQty = mMedQtyEt.getText().toString().trim(), MedPrice = mMedPriceEt.getText().toString().trim(), MedDesc = mMedDescEt.getText().toString().trim(), MedExpDate = mExpDateEt.getText().toString().trim();
-                    updateData(id, BatchNo, MedName, MedType, MedQty, MedPrice, MedExpDate, MedDesc);
+                    if(!mBatchNoEt.getText().toString().trim().isEmpty() && !mMedNameEt.getText().toString().trim().isEmpty() && !mMedTypeEt.getText().toString().trim().isEmpty() && !mMedQtyEt.getText().toString().trim().isEmpty() && !mMedPriceEt.getText().toString().trim().isEmpty() && !mMedDescEt.getText().toString().trim().isEmpty() && !mExpDateEt.getText().toString().trim().isEmpty()){
+                        updateData(id, BatchNo, MedName, MedType, MedQty, MedPrice, MedExpDate, MedDesc);
+                    } else {
+                        Toast.makeText(MainActivity.this, "Please Fill Required Data !!", Toast.LENGTH_SHORT).show();
+                    }
                 }else{
                     String  BatchNo = mBatchNoEt.getText().toString().trim(), MedName = mMedNameEt.getText().toString().trim(), MedType = mMedTypeEt.getText().toString().trim(), MedQty = mMedQtyEt.getText().toString().trim(), MedPrice = mMedPriceEt.getText().toString().trim(), MedDesc = mMedDescEt.getText().toString().trim(), MedExpDate = mExpDateEt.getText().toString().trim();
 
